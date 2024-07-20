@@ -1,4 +1,4 @@
-#CrackYourInternship #CrackYourPlacement
+## CrackYourPlacement
 
 Welcome to my 45 Days Data Structures and Algorithms (DSA) Challenge! This repository documents my journey through learning and mastering DSA concepts, as well as solving various related problems.
 
