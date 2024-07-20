@@ -1,34 +1,32 @@
+// Given an integer array nums sorted in non - decreasing order, remove the duplicates in - place such that each unique element appears only once.The relative order of the elements should be kept the same.Then return the number of unique elements in nums.
+
+// Consider the of unique of nums to be k, to get accepted, you need to do the following things :
+
+// Change the array nums such that the first k elements of nums contain the unique elements in the they were present in nums initially.The remaining elements of nums are not important as well as the of nums.Return k.
+
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-int findDuplicate(vector<int> &nums)
+int removeDuplicates(vector<int> &nums)
 {
-    int left = 1;
-    int right = nums.size() - 1;
-    while (left < right)
+    if (nums.empty())
     {
-        int mid = left + (right - left) / 2;
-        int count = 0;
+        return 0;
+    }
 
-        for (int num : nums)
+    int k = 1;
+    for (int i = 1; i < nums.size(); i++)
+    {
+        if (nums[i] != nums[i - 1])
         {
-            if (num <= mid)
-            {
-                count++;
-            }
-        }
-        if (count > mid)
-        {
-            right = mid;
-        }
-        else
-        {
-            left = mid + 1;
+            nums[k] = nums[i];
+            k++;
         }
     }
-    return left;
+
+    return k;
 }
 
 int main()
@@ -44,6 +42,6 @@ int main()
         cin >> temp;
         nums.push_back(temp);
     }
-    cout << "The duplicate number is " << findDuplicate(nums) << endl;
+    cout << "The length of the array after removing duplicates is " << removeDuplicates(nums) << endl;
     return 0;
 }
